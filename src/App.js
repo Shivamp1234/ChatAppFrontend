@@ -23,22 +23,28 @@ function App() {
 
   return (
     <>
-      <h1>CHAT APP</h1>
+      <h1>JUST CHAT</h1>
       <div className="app">
         <div className="chat-window">
-          {messages.map((msg, idx) => (
-            <div>
-              {msg.username === username ? (
-                <p key={idx} className="outgoing">
-                  {username} : {msg.message}
-                </p>
-              ) : (
-                <p key={idx} className="incoming">
-                  {msg.username} : {msg.message}
-                </p>
-              )}
-            </div>
-          ))}
+          <div className="chat">
+            {messages.map((msg, idx) => (
+              <div>
+                {msg.username === username ? (
+                  <div className="outgoing">
+                    <p key={idx}>
+                      {username} : {msg.message}
+                    </p>
+                  </div>
+                ) : (
+                  <div className="incoming">
+                    <p key={idx} >
+                      {msg.username} : {msg.message}
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
         <div>
           <form onSubmit={sendmessage}>
